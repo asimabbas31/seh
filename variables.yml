@@ -1,0 +1,10 @@
+ec2_region: "us-west-2"
+ec2_instance_type: "t2.medium"
+ec2_image: "ami-0bbe6b35405ecebdb"
+ec2_keypair: "asim-ssh"
+ec2_volume_size: 8
+ec2_count: 1
+ec2_security_group_id: "sg-0d4d7360838ec8b0a"
+ec2_subnet_id: "subnet-7cecc305"
+ec2_tag_Role: "demo_machines"
+ec2_tag_Type: "t2.micro"
