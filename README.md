@@ -121,3 +121,33 @@ You will get information on logs or also you can verify from AWS console
 
 # Now our Nodes are up on AWS. Next step is to create the Kubernets Cluster on AWS.
 
+Get the Node id from IPs from logs or from the console. 
+
+Your cluster will include the following physical resources:
+
+One master node
+The master node (a node in Kubernetes refers to a server) is responsible for managing the state of the cluster. It runs Etcd, which stores cluster data among components that schedule workloads to worker nodes.
+
+Two worker nodes
+Worker nodes are the servers where your workloads (i.e. containerized applications and services) will run. A worker will continue to run your workload once they're assigned to it, even if the master goes down once scheduling is complete. A cluster's capacity can be increased by adding workers.
+
+Prerequisites
+- As Ansible works with SSH, it is required to exchange ssh-keys between the nodes, disable password authorization, and enable authorization by key. It is also necessary to enable root access without password.
+- Python on AWS nodes 
+
+Download the folder from 
+
+https://github.com/asimabbas31/seh/tree/master/ansible/kube-playbooks
+
+In hosts file update the nodes IPs and password-less username
+In master-node.yml replace the user with your user "become_user: ansible"
+
+ansible@ansible-node:~/kube-cluster$ ansible-playbook -i hosts dependencies.yml -vv
+
+ansible@ansible-node:~/kube-cluster$ ansible-playbook -i hosts master-node.yml -vv
+
+ansible@ansible-node:~/kube-cluster$ ansible-playbook -i hosts workers-node.yml -vv
+
+
+
+
