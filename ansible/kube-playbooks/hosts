@@ -1,0 +1,5 @@
+[master]
+master ansible_user=ansible ansible_host=10.142.0.6 ansible_port=22
+
+[workers]
+worker1  ansible_user=ansible ansible_host=10.142.0.7 ansible_port=22
