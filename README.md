@@ -1,12 +1,13 @@
-# seh
-Project
-Design and provision a highly available and scalable architecture that hosts a PHP application using AWS.
 
-
-
+# Design and provision a highly available and scalable architecture that hosts a PHP application using AWS.
 
 
 The purpose of the document is to design an AWS Architecture for SB PHP based application and database. The document has multiple parts to fulfill the requirements. Moreover I have added the hands-on method to dockerazie the simple PHP based application which is running on Nginx and orchestration with Kubernetets. For this implementation i have used the AWS two EC-2 nodes (t2.medium). And for EC2-Nodes configuration deployment I have used the Ansible Playbooks. This document will also cover the application security and monitoring.
+
+# Architecture Desgin 
+
+
+
 
 Part 1 = Ansible Installation 
 
@@ -24,7 +25,7 @@ Part 7 = Application Monitoring
 
 
 
-Ansible Installation on local node: 
+# Ansible Installation on local node: 
 
 Install Ansible based on the OS of the machine from which you plan to execute the script.
 
@@ -48,13 +49,13 @@ root@ip-:/etc/ansible/ansible# pip install boto Collecting boto
 
  Downloading https://files.pythonhosted.org/packages/23/10/c0b78c27298029e4454a472a1919bde20cb182dab1662cec7f2ca1dcc523/boto-2.49.0-py2.py3-none-any.whl (1.4MB) 100% |████████████████████████████████| 1.4MB 903kB/s Installing collected packages: boto Successfully installed boto-2.49.0
 
-**Now Lets Move to the Ansible AWS Provision ** This tutorial explains how to manually provision an AWS EC2 virtual machine using Ansible.
+#Now Lets Move to the Ansible AWS Provision ** This tutorial explains how to manually provision an AWS EC2 virtual machine using Ansible.
 
 The best way to get started is to install Ansible and run playbooks manually on your local machine to provision a VM.
 
 Set AWS credentials as environment variables or you can copy it on some and use the source command set variables.
 
-Prepare Ansible Playbook
+#Prepare Ansible Playbook
 
 Ansible uses a folder structure that looks like this:
 
@@ -115,5 +116,5 @@ creating host via 'add_host': hostname=18.236.82.237
 
 You will get information on logs or also you can verify from AWS console 
 
-Now our Nodes are up on AWS. Next step is to create the Kubernets Cluster on AWS.
+# Now our Nodes are up on AWS. Next step is to create the Kubernets Cluster on AWS.
 
