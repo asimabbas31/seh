@@ -118,3 +118,9 @@ You will get information on logs or also you can verify from AWS console
 
 # Now our Nodes are up on AWS. Next step is to create the Kubernets Cluster on AWS.
 
+Prerequisites: 
+
+
+
+
+
