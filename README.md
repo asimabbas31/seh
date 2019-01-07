@@ -6,6 +6,9 @@ The purpose of the document is to design an AWS Architecture for SB PHP based ap
 
 # Architecture Desgin 
 
+As shown in diagram for new application we have setup the four nodes on AWS (t2.micro).Two nodes are running as Kubernets Slave cluster and one is Kubernets Master node. We are using MySql as a databaser storage server. On Kuberenets Slave nodes Pods are PHP application and Ngninx. In combination with PHP-FPM, Nginx is configured to send requests for .php routes to PHP-FPM to serve the page.. We’ll create a Docker image that includes our application code, and configure a pod to run containers from that image in Kubernetes. 
+
+
 ![alt text](https://github.com/asimabbas31/seh/blob/asimabbas31-desgin/desgin.png)
 
 
