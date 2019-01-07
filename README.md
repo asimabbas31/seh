@@ -6,7 +6,7 @@ The purpose of the document is to design an AWS Architecture for SB PHP based ap
 
 # Architecture Desgin 
 
-
+![alt text] (https://github.com/asimabbas31/seh/blob/asimabbas31-desgin/desgin.png)
 
 
 Part 1 = Ansible Installation 
