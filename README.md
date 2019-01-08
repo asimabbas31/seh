@@ -255,7 +255,7 @@ Status:             Running
 For Application/System/Network Monitriong there are multiple opensource tools avaible like nagios, zabbix, cacti. I am using Zabbix for the monitriong. Using the guide https://computingforgeeks.com/how-to-install-zabbix-server-4-0-on-centos-7/ . You can configure the Zabbix for your system. Also we can use the Kubernetes Dashboard for monitriong. 
 
 
-
+![alt text](https://github.com/asimabbas31/seh/blob/asimabbas31-desgin/zabbix.png)
 
 
 
