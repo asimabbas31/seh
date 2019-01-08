@@ -60,20 +60,24 @@ Install Ansible based on the OS of the machine from which you plan to execute th
 Ansible Installation on Ubuntu
 
 Prerequistie: Python , SSH, PIP, BOTO
-
+```bash
 ubuntu@ip-:~$ sudo apt-get update
-
+```
+```bash
 ubuntu@ip-:~$ sudo apt-get install -y python-pip
-
+```
+```bash
 ubuntu@ip-:~$ sudo apt-get install -y ansible
-
+```
+```bash
 ubuntu@ip-:/etc/ansible$ ansible --version 
 
 ansible 2.5.1 config file = /etc/ansible/ansible.cfg configured module search path = [u'/home/ubuntu/.ansible/plugins/modules', u'/usr/share/ansible/plugins/modules'] ansible python module location = /usr/lib/python2.7/dist-packages/ansible executable location = /usr/bin/ansible python version = 2.7.15rc1 (default, Nov 12 2018, 14:31:15) [GCC 7.3.0]
-
+```
+```bash
 root@ip-:/etc/ansible/ansible# pip install boto Collecting boto
-
  Downloading https://files.pythonhosted.org/packages/23/10/c0b78c27298029e4454a472a1919bde20cb182dab1662cec7f2ca1dcc523/boto-2.49.0-py2.py3-none-any.whl (1.4MB) 100% |████████████████████████████████| 1.4MB 903kB/s Installing collected packages: boto Successfully installed boto-2.49.0
+ ```
 
 #Now Lets Move to the Ansible AWS Provision ** This tutorial explains how to manually provision an AWS EC2 virtual machine using Ansible.
 
