@@ -198,7 +198,7 @@ Now lets configure the sample php based application for deployment. Kubernetes a
 
 Application Desgin 
 
-![alt text](https://github.com/asimabbas31/seh/blob/master/sampleapp.PNG)
+![alt text](https://github.com/asimabbas31/seh/blob/asimabbas31-desgin/sampleapp.PNG)
 
 
 Download the kubernetes folder from https://github.com/asimabbas31/seh/tree/master/K8-deployment
