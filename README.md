@@ -26,20 +26,19 @@ Basic AWS Points for Better Security and Managment :
 
 
 
+For the setup please follow the pattern. 
 
-Part 1 = Ansible Installation 
+ - Ansible Installation 
 
-Part 2 = EC-2 Instance Creation through Ansible Playbooks
+ - EC-2 Instance Creation through Ansible Playbooks
 
-Part 3 = Kubernetes and Docker Installation through Playbooks 
+ - Kubernetes and Docker Installation through Playbooks 
 
-Part 4 = Build Sample PHP application using Docker build 
+ - Build Sample PHP application using Docker build 
 
-Part 5 = Container Deployment via Kuberenets on AWS nodes 
+ - Container Deployment via Kuberenets on AWS nodes 
 
-Part 6 = Application Security 
-
-Part 7 = Application Monitoring 
+ - Application Monitoring 
 
 
 
