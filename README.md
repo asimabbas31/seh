@@ -105,14 +105,15 @@ Please download the Ansible Playbook folder from
 https://github.com/asimabbas31/seh/tree/master/ansible
 
 In ansible.cfg, replace ${AWS_EC2_PEM_KEYPATH} with the path to the PEM key that should be used to provision the machine. Like in my file its is asim-ssh.pem
-
+```bash
 root@ip-172-31-31-214:/etc/ansible# export AWS_ACCESS_KEY_ID=XXXXXXXX
-
+```
+```bash
 root@ip-172-31-31-214:/etc/ansible# export AWS_SECRET_ACCESS_KEY=XXXXXXXX
-
+```
 RUN the Playbook 
 
-
+```bash
 root@ip-172-31-31-214:/etc/ansible# ansible-playbook -vvv ec2_prov_playbook.yml
 
 ansible-playbook 2.5.1
@@ -146,7 +147,7 @@ creating host via 'add_host': hostname=18.236.82.237
 
             "ec2_tag_Type": "t2.micro"
 
-
+```
 You will get information on logs or also you can verify from AWS console 
 
 # Now our Nodes are up on AWS. Next step is to create the Kubernets Cluster on AWS.
@@ -172,20 +173,24 @@ https://github.com/asimabbas31/seh/tree/master/ansible/kube-playbooks
 In hosts file update the nodes IPs and password-less username
 In master-node.yml replace the user with your user "become_user: ansible"
 
+```bash
 ansible@ansible-node:~/kube-cluster$ ansible-playbook -i hosts dependencies.yml -vv
-
+```
+```bash
 ansible@ansible-node:~/kube-cluster$ ansible-playbook -i hosts master-node.yml -vv
-
+```
+```bash
 ansible@ansible-node:~/kube-cluster$ ansible-playbook -i hosts workers-node.yml -vv
-
+```
 Once you are done check the status your nodes
 
+```bash
 ansible@master-node:~/docker$ kubectl get nodes
 NAME          STATUS   ROLES    AGE   VERSION
 master-node   Ready    master   15m   v1.13.1
 slave-node1   Ready    <none>   15m   v1.13.1
 slave-node2   Ready    <none>   15m   v1.13.1 
-
+```
 
 Now lets configure the sample php based application for deployment. Kubernetes and Docker run our Nginx and PHP-FPM processes in a Kubernetes cluster. We’ll create a Docker image that includes our application code, and configure a pod to run containers from that image in Kubernetes. Running Nginx and PHP-FPM on Kubernetes. 
 
@@ -200,43 +205,50 @@ Download the Kubernets folder from https://github.com/asimabbas31/seh/tree/maste
 
 Lets create the image first: 
 Create you Docker Image repositary 
-
+```bash
 ansible@slave-node1:~/docker$ sudo docker run -d -p 5000:5000 --restart=always --name registry registry:2
-
+```
 Build sample application 
+```bash
 ansible@slave-node1:~/docker$ docker build . -t my-php-app:1.0.0
-
+```
 Tag your application to local repo 
+```bash
 ansible@slave-node1:~/docker$ docker tag my-php-app:1.0.0 localhost:5000/my-php-app
-
+```
 push this into local repo 
+```bash
 ansible@slave-node1:~/docker$ sudo docker tag my-php-app:1.0.0 localhost:5000/my-php-app
-
+```
 pull and verify image push sucessfully 
-
+```bash
 ansible@slave-node1:~/docker$ sudo docker pull localhost:5000/my-php-app
 Using default tag: latest
 latest: Pulling from my-php-app
 Digest: sha256:97341a4e47b5b83c3be3b0b28e0545068817a5d69841f46d54f434fe9cc3bf50
 Status: Image is up to date for localhost:5000/my-php-app:latest
-
+```
+```bash
 ansible@slave-node1:~/docker$ sudo docker images
 REPOSITORY                  TAG                 IMAGE ID            CREATED             SIZE
 my-php-app                  1.0.0               729b6e2f33ad        About an hour ago   367MB
 localhost:5000/my-php-app   latest              729b6e2f33ad        About an hour ago   367MB
-
+```
 Now we have the image in our local repo lets create the Kube pods 
 
+```bash
 ansible@master-node:~/docker$ kubectl create -f configmap.yaml 
 configmap/nginx-config created
-
+```
+```bash
 ansible@master-node:~/docker$ kubectl create -f web.yaml 
 pod/sb-est-app created
-
+``````bash
 ansible@master-node:~/docker$ kubectl get pods
 NAME                              READY   STATUS        RESTARTS   AGE
 sb-est-app                        2/2     Running       0          7s
-
+```
+```bash
 ansible@master-node:~/docker$ kubectl describe pod sb-est-app
 Name:               sb-est-app
 Namespace:          default
@@ -247,7 +259,7 @@ Start Time:         Tue, 08 Jan 2019 05:34:35 +0000
 Labels:             <none>
 Annotations:        <none>
 Status:             Running
- 
+ ```
  Now our sample is running lets setup the Monitriong tool. 
  
 
