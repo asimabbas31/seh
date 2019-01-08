@@ -7,7 +7,7 @@ The purpose of the document is to design an AWS Architecture for SB PHP based ap
 # Architecture Desgin 
 
 Think of VPC as your virtual data center - in the cloud. Whatever you can think of doing in a data center, you do almost the same in your VPC.
-As shown in diagram for new application we have setup the four nodes on AWS (t2.micro).Two nodes are running as Kubernets Slave cluster and one is Kubernets Master node. We are using MySql as a database storage server. On Kuberenets Slave nodes Pods are PHP application and Ngninx. In combination with PHP-FPM, Nginx is configured to send requests for .php routes to PHP-FPM to serve the page.. We’ll create a Docker image that includes our application code, and configure a pod to run containers from that image in Kubernetes. 
+As shown in diagram for new application we have setup the four nodes on AWS (t2.micro).Two nodes are running as kubernetes Slave cluster and one is kubernetes Master node. We are using MySql as a database storage server. On Kuberenets Slave nodes Pods are PHP application and Ngninx. In combination with PHP-FPM, Nginx is configured to send requests for .php routes to PHP-FPM to serve the page.. We’ll create a Docker image that includes our application code, and configure a pod to run containers from that image in Kubernetes. 
 
 
 ![alt text](https://github.com/asimabbas31/seh/blob/asimabbas31-desgin/desgin.png)
@@ -150,7 +150,7 @@ creating host via 'add_host': hostname=18.236.82.237
 ```
 You will get information on logs or also you can verify from AWS console 
 
-# Now our Nodes are up on AWS. Next step is to create the Kubernets Cluster on AWS.
+# Now our Nodes are up on AWS. Next step is to create the kubernetes Cluster on AWS.
 
 Get the Node id from IPs from logs or from the console. 
 
@@ -201,7 +201,7 @@ Application Desgin
 ![alt text](https://github.com/asimabbas31/seh/blob/master/sampleapp.PNG)
 
 
-Download the Kubernets folder from https://github.com/asimabbas31/seh/tree/master/K8-deployment
+Download the kubernetes folder from https://github.com/asimabbas31/seh/tree/master/K8-deployment
 
 Lets create the image first: 
 Create you Docker Image repositary 
