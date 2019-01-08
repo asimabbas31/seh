@@ -14,14 +14,14 @@ As shown in diagram for new application we have setup the four nodes on AWS (t2.
 
 Basic AWS Points for Better Security and Managment : 
 
-*Every region in the world has a default VPC
-*Connect corporate network to the VPC using VPN
-*One VPC can have only one internet gateway (igw)
-*NAT gateway is an AWS software appliance, which needs to be connected to a public subnet in your VPC
-*For instances in private subnet, NAT gateway or NAT (ec2) instances can be used to connect to the internet
-*Security group can be considered a host firewall for each individual AWS EC2 or RDS instances, etc
-*Instances on private subnet can be accessed using a jump-box , or a bastion host
-*IGW are provided by AWS and are always in HA mode, spanning multiple AZ
+-Every region in the world has a default VPC
+-Connect corporate network to the VPC using VPN
+-One VPC can have only one internet gateway (igw)
+-NAT gateway is an AWS software appliance, which needs to be connected to a public subnet in your VPC
+-For instances in private subnet, NAT gateway or NAT (ec2) instances can be used to connect to the internet
+-Security group can be considered a host firewall for each individual AWS EC2 or RDS instances, etc
+-Instances on private subnet can be accessed using a jump-box , or a bastion host
+-IGW are provided by AWS and are always in HA mode, spanning multiple AZ
 
 
 
