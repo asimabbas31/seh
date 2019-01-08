@@ -2,7 +2,7 @@
 # Design and provision a highly available and scalable architecture that hosts a PHP application using AWS.
 
 
-The purpose of the document is to design an AWS Architecture for SB PHP based application and database. The document has multiple parts to fulfill the requirements.Using the below guide you can configure the AWS nodes with Ansible Playbook, Docker, kubernetes installation, configuration and application deployment on kubernetes Cluster. Also in last part i have the added the application monitriong tool Zabbix Installation guide. 
+The purpose of the document is to design an AWS Architecture for SB PHP based application. The document has multiple parts to fulfill the requirements .Using the below guide you can configure the AWS nodes with Ansible Playbook, Docker, kubernetes installation, configuration and application deployment on kubernetes Cluster. Also in last part i have the added the application monitriong tool Zabbix Installation guide. 
 
 # Architecture Desgin 
 
