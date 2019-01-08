@@ -163,4 +163,5 @@ Now lets configure the sample php based application for deployment. Kubernetes a
 
 Application Desgin 
 
+![alt text](https://github.com/asimabbas31/seh/blob/master/sampleapp.PNG)
 
