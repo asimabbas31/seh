@@ -252,8 +252,10 @@ Labels:             <none>
 Annotations:        <none>
 Status:             Running
  ```
-Key Features of APM tool: 
-Key APM features:
+# Application Monitriong  
+
+
+Key APM features required in APM:
 
 - Monitor app performance by response times, user satisfaction, etc
 - Understand performance based on application dependencies
