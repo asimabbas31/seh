@@ -92,11 +92,10 @@ Set AWS credentials as environment variables or you can copy it on some and use 
 #Prepare Ansible Playbook
 
 Ansible uses a folder structure that looks like this:
-=> {
+```bash
 ubuntu@ip-172-31-31-214:/etc/ansible# ls
-}
 ansible.cfg asim-ssh.pem ec2_prov_playbook.retry ec2_prov_playbook.yml hosts inventory variables.yml
-
+```
 In our scenario, the important files are: ec2_prov_playbook.yml, which is the playbook that provisions an EC2 instance. variables.yml, which contains wildcard settings for the playbook.
 
 ec2_prov_playbook.yml and ec2_term_playbook.yml scripts have some wildcards, which ansible replaces with values from variables.yml.
