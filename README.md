@@ -148,6 +148,19 @@ ansible@ansible-node:~/kube-cluster$ ansible-playbook -i hosts master-node.yml -
 
 ansible@ansible-node:~/kube-cluster$ ansible-playbook -i hosts workers-node.yml -vv
 
+Once you are done check the status your nodes
 
+ansible@master-node:~/docker$ kubectl get nodes
+NAME          STATUS   ROLES    AGE   VERSION
+master-node   Ready    master   15m   v1.13.1
+slave-node1   Ready    <none>   15m   v1.13.1
+slave-node2   Ready    <none>   15m   v1.13.1 
+
+
+Now lets configure the sample php based application for deployment. Kubernetes and Docker run our Nginx and PHP-FPM processes in a Kubernetes cluster. We’ll create a Docker image that includes our application code, and configure a pod to run containers from that image in Kubernetes. Running Nginx and PHP-FPM on Kubernetes. 
+
+
+
+Application Desgin 
 
 
