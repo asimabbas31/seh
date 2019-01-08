@@ -6,10 +6,25 @@ The purpose of the document is to design an AWS Architecture for SB PHP based ap
 
 # Architecture Desgin 
 
+Think of VPC as your virtual data center - in the cloud. Whatever you can think of doing in a data center, you do almost the same in your VPC.
 As shown in diagram for new application we have setup the four nodes on AWS (t2.micro).Two nodes are running as Kubernets Slave cluster and one is Kubernets Master node. We are using MySql as a databaser storage server. On Kuberenets Slave nodes Pods are PHP application and Ngninx. In combination with PHP-FPM, Nginx is configured to send requests for .php routes to PHP-FPM to serve the page.. We’ll create a Docker image that includes our application code, and configure a pod to run containers from that image in Kubernetes. 
 
 
 ![alt text](https://github.com/asimabbas31/seh/blob/asimabbas31-desgin/desgin.png)
+
+Basic AWS Points for Better Security and Managment : 
+
+*Every region in the world has a default VPC
+*Connect corporate network to the VPC using VPN
+*One VPC can have only one internet gateway (igw)
+*NAT gateway is an AWS software appliance, which needs to be connected to a public subnet in your VPC
+*For instances in private subnet, NAT gateway or NAT (ec2) instances can be used to connect to the internet
+*Security group can be considered a host firewall for each individual AWS EC2 or RDS instances, etc
+*Instances on private subnet can be accessed using a jump-box , or a bastion host
+*IGW are provided by AWS and are always in HA mode, spanning multiple AZ
+
+
+
 
 
 Part 1 = Ansible Installation 
