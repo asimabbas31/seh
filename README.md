@@ -252,11 +252,22 @@ Labels:             <none>
 Annotations:        <none>
 Status:             Running
  ```
+Key Features of APM tool: 
+Key APM features:
+
+- Monitor app performance by response times, user satisfaction, etc
+- Understand performance based on application dependencies
+- Identify slowest and most used web requests
+- Monitor key web requests or transactions
+- Identify slowest and most used SQL queries
+- Monitor the performance of specific SQL queries
+
 For Application/System/Network Monitriong there are multiple opensource tools avaible like nagios, zabbix, cacti. I am using Zabbix for the monitriong. Using the guide https://computingforgeeks.com/how-to-install-zabbix-server-4-0-on-centos-7/ . You can configure the Zabbix for your system. Also we can use the Kubernetes Dashboard for monitriong. 
 
 
 ![alt text](https://github.com/asimabbas31/seh/blob/asimabbas31-desgin/zabbix.png)
 
+There are othe paid tools using that you can drill down the issues for debbuging. Like in Appdynamic it very easy to monitor the business transcation and route of the transcation with database calls. 
 
 
 
