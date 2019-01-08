@@ -12,10 +12,13 @@ Think of AWS VPC as your virtual data center - in the cloud. Whatever you can th
 ![alt text](https://github.com/asimabbas31/seh/blob/asimabbas31-desgin/desgin.png)
 
 
-As shown in diagram for new application we have setup the four nodes on AWS (t2.micro).Two nodes are running as kubernetes Slave cluster and one is kubernetes Master node and one as a Bastian/Ansible Host. We are using MySql as a database storage server. On Kuberenets Slave nodes Pods are PHP application and Ngninx. In combination with PHP-FPM, Nginx is configured to send requests for .php routes to PHP-FPM to serve the page.. We’ll create a Docker image that includes our application code, and configure a pod to run containers from that image in Kubernetes. 
+As shown in diagram for new application we have setup the three nodes on AWS (t2.micro).Two nodes are running as kubernetes Slave cluster and one is kubernetes Master node. We are using MySql as a database storage server. On Kuberenets Slave nodes Pods are PHP application and Ngninx. In combination with PHP-FPM, Nginx is configured to send requests for .php routes to PHP-FPM to serve the page.. We’ll create a Docker image that includes our application code, and configure a pod to run containers from that image in Kubernetes. 
 
+Furthermore to secure the environment we can use the Bastian host. Right now its not part of the my guide. 
 
-Basic AWS Points for Better Security and Managment : 
+ In very simple terms, a bastion host is the only host or computer which is allowed public network access. The other common name used for a bastion host is ‘Jump Box’. This is usually a powerful server box with high network security as this is the only host which is allowed public access. System admins can use this machine to connect to other instances in the backend infrastructure via secure authentication mechanisms.
+
+Basic AWS Points for Better Security and Managment.
 
 - Every region in the world has a default VPC
 - Connect corporate network to the VPC using VPN
@@ -28,7 +31,6 @@ Basic AWS Points for Better Security and Managment :
 - On Bastian host Turn on Selinux and properly configure firewall to allow only trusted access to bastion host.
 - Enable system auditing by using "aureport" or other tools.
 - If using multiple VPC enable VPC peering. VPC Peering allows you to communicate with other VPC in same account or with other AWS account.
-
 
 
 
@@ -48,25 +50,12 @@ For the setup please follow the pattern.
 
 
 
-# Ansible/bastion host  Installation on node: 
+# Ansible  Installation on node: 
 
-Create an EC2 instance on AWS. I choose a micro sized instance since it is on the free-tier and it’s only purpose is to access other servers. And we will use the same host for the AWS nodes deployment through Ansible playbooks.
+Install Ansible based on the OS of the machine from which you plan to execute the script. If you have a Bastian server in your infrastruce please add the ssh forwarding details using the https://blog.scottlowe.org/2015/12/24/running-ansible-through-ssh-bastion-host/
 
-Edit your local ~/.ssh/config file
 
-Host bastion
-  Hostname ansible-ssh
-  User ansible
-  ForwardAgent yes
-  
- - Enable VPC peering between Bastion VPC to Private Instance VPC
- - Configure security group of Bastion host to allow SSH into it only from trusted network
- - Disable SSH from all other instances.
- 
-
-Install Ansible based on the OS of the machine from which you plan to execute the script.
-
-**Installation guide **
+**Installation guide for UBUNTU **
 
 Ansible Installation on Ubuntu
 
