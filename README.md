@@ -166,4 +166,67 @@ Application Desgin
 ![alt text](https://github.com/asimabbas31/seh/blob/master/sampleapp.PNG)
 
 
+Download the Kubernets folder from https://github.com/asimabbas31/seh/tree/master/K8-deployment
+
+Lets create the image first: 
+Create you Docker Image repositary 
+
+ansible@slave-node1:~/docker$ sudo docker run -d -p 5000:5000 --restart=always --name registry registry:2
+
+Build sample application 
+ansible@slave-node1:~/docker$ docker build . -t my-php-app:1.0.0
+
+Tag your application to local repo 
+ansible@slave-node1:~/docker$ docker tag my-php-app:1.0.0 localhost:5000/my-php-app
+
+push this into local repo 
+ansible@slave-node1:~/docker$ sudo docker tag my-php-app:1.0.0 localhost:5000/my-php-app
+
+pull and verify image push sucessfully 
+
+ansible@slave-node1:~/docker$ sudo docker pull localhost:5000/my-php-app
+Using default tag: latest
+latest: Pulling from my-php-app
+Digest: sha256:97341a4e47b5b83c3be3b0b28e0545068817a5d69841f46d54f434fe9cc3bf50
+Status: Image is up to date for localhost:5000/my-php-app:latest
+
+ansible@slave-node1:~/docker$ sudo docker images
+REPOSITORY                  TAG                 IMAGE ID            CREATED             SIZE
+my-php-app                  1.0.0               729b6e2f33ad        About an hour ago   367MB
+localhost:5000/my-php-app   latest              729b6e2f33ad        About an hour ago   367MB
+
+Now we have the image in our local repo lets create the Kube pods 
+
+ansible@master-node:~/docker$ kubectl create -f configmap.yaml 
+configmap/nginx-config created
+
+ansible@master-node:~/docker$ kubectl create -f web.yaml 
+pod/sb-est-app created
+
+ansible@master-node:~/docker$ kubectl get pods
+NAME                              READY   STATUS        RESTARTS   AGE
+sb-est-app                        2/2     Running       0          7s
+
+ansible@master-node:~/docker$ kubectl describe pod sb-est-app
+Name:               sb-est-app
+Namespace:          default
+Priority:           0
+PriorityClassName:  <none>
+Node:               slave-node1/10.142.0.7
+Start Time:         Tue, 08 Jan 2019 05:34:35 +0000
+Labels:             <none>
+Annotations:        <none>
+Status:             Running
+ 
+ Now our sample is running lets setup the Monitriong tool. 
+ 
+
+
+
+
+
+
+
+
+
 
