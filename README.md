@@ -2,7 +2,7 @@
 # Design and provision a highly available and scalable architecture that hosts a PHP application using AWS.
 
 
-The purpose of the document is to design an AWS Architecture for SB PHP based application and database. The document has multiple parts to fulfill the requirements. Moreover I have added the hands-on method to dockerazie the simple PHP based application which is running on Nginx and orchestration with Kubernetets. For this implementation i have used the AWS two EC-2 nodes (t2.medium). And for EC2-Nodes configuration deployment I have used the Ansible Playbooks. This document will also cover the application security and monitoring.
+The purpose of the document is to design an AWS Architecture for SB PHP based application and database. The document has multiple parts to fulfill the requirements.Using the below guide you can configure the AWS nodes with Ansible Playbook, Docker, kubernetes installation, configuration and application deployment on kubernetes Cluster. Also in last part i have the added the application monitriong tool Zabbix Installation guide. 
 
 # Architecture Desgin 
 
@@ -12,7 +12,7 @@ Think of AWS VPC as your virtual data center - in the cloud. Whatever you can th
 ![alt text](https://github.com/asimabbas31/seh/blob/asimabbas31-desgin/desgin.png)
 
 
-As shown in diagram for new application we have setup the four nodes on AWS (t2.micro).Two nodes are running as kubernetes Slave cluster and one is kubernetes Master node. We are using MySql as a database storage server. On Kuberenets Slave nodes Pods are PHP application and Ngninx. In combination with PHP-FPM, Nginx is configured to send requests for .php routes to PHP-FPM to serve the page.. We’ll create a Docker image that includes our application code, and configure a pod to run containers from that image in Kubernetes. 
+As shown in diagram for new application we have setup the four nodes on AWS (t2.micro).Two nodes are running as kubernetes Slave cluster and one is kubernetes Master node and one as a Bastian/Ansible Host. We are using MySql as a database storage server. On Kuberenets Slave nodes Pods are PHP application and Ngninx. In combination with PHP-FPM, Nginx is configured to send requests for .php routes to PHP-FPM to serve the page.. We’ll create a Docker image that includes our application code, and configure a pod to run containers from that image in Kubernetes. 
 
 
 Basic AWS Points for Better Security and Managment : 
