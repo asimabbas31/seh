@@ -80,6 +80,7 @@ root@ip-:/etc/ansible/ansible# pip install boto Collecting boto
  ```
 
 #Now Lets Move to the Ansible AWS Provision ** This tutorial explains how to manually provision an AWS EC2 virtual machine using Ansible.
+For this installation i have picked the major code from https://github.com/devops-recipes. 
 
 The best way to get started is to install Ansible and run playbooks manually on your local machine to provision a VM.
 
