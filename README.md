@@ -7,7 +7,7 @@ The purpose of the document is to design an AWS Architecture for SB PHP based ap
 # Architecture Desgin 
 
 Think of VPC as your virtual data center - in the cloud. Whatever you can think of doing in a data center, you do almost the same in your VPC.
-As shown in diagram for new application we have setup the four nodes on AWS (t2.micro).Two nodes are running as Kubernets Slave cluster and one is Kubernets Master node. We are using MySql as a databaser storage server. On Kuberenets Slave nodes Pods are PHP application and Ngninx. In combination with PHP-FPM, Nginx is configured to send requests for .php routes to PHP-FPM to serve the page.. We’ll create a Docker image that includes our application code, and configure a pod to run containers from that image in Kubernetes. 
+As shown in diagram for new application we have setup the four nodes on AWS (t2.micro).Two nodes are running as Kubernets Slave cluster and one is Kubernets Master node. We are using MySql as a database storage server. On Kuberenets Slave nodes Pods are PHP application and Ngninx. In combination with PHP-FPM, Nginx is configured to send requests for .php routes to PHP-FPM to serve the page.. We’ll create a Docker image that includes our application code, and configure a pod to run containers from that image in Kubernetes. 
 
 
 ![alt text](https://github.com/asimabbas31/seh/blob/asimabbas31-desgin/desgin.png)
@@ -92,11 +92,11 @@ Set AWS credentials as environment variables or you can copy it on some and use 
 #Prepare Ansible Playbook
 
 Ansible uses a folder structure that looks like this:
-
+{
 ubuntu@ip-172-31-31-214:/etc/ansible# ls
 
 ansible.cfg asim-ssh.pem ec2_prov_playbook.retry ec2_prov_playbook.yml hosts inventory variables.yml
-
+}
 In our scenario, the important files are: ec2_prov_playbook.yml, which is the playbook that provisions an EC2 instance. variables.yml, which contains wildcard settings for the playbook.
 
 ec2_prov_playbook.yml and ec2_term_playbook.yml scripts have some wildcards, which ansible replaces with values from variables.yml.
