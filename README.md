@@ -22,6 +22,9 @@ Basic AWS Points for Better Security and Managment :
 - Security group can be considered a host firewall for each individual AWS EC2 or RDS instances, etc
 - Instances on private subnet can be accessed using a jump-box , or a bastion host
 - IGW are provided by AWS and are always in HA mode, spanning multiple AZ
+- On Bastian host Turn on Selinux and properly configure firewall to allow only trusted access to bastion host.
+- Enable system auditing by using "aureport" or other tools.
+- If using multiple VPC enable VPC peering. VPC Peering allows you to communicate with other VPC in same account or with other AWS account.
 
 
 
@@ -42,7 +45,21 @@ For the setup please follow the pattern.
 
 
 
-# Ansible Installation on local node: 
+# Ansible/bastion host  Installation on node: 
+
+Create an EC2 instance on AWS. I choose a micro sized instance since it is on the free-tier and it’s only purpose is to access other servers. And we will use the same host for the AWS nodes deployment through Ansible playbooks.
+
+Edit your local ~/.ssh/config file
+
+Host bastion
+  Hostname ansible-ssh
+  User ansible
+  ForwardAgent yes
+  
+ - Enable VPC peering between Bastion VPC to Private Instance VPC
+ - Configure security group of Bastion host to allow SSH into it only from trusted network
+ - Disable SSH from all other instances.
+ 
 
 Install Ansible based on the OS of the machine from which you plan to execute the script.
 
